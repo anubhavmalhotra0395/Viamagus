@@ -12,6 +12,8 @@ const Login = () => {
     const [loggedIn,setLoggedIn] = useState(false);
     const [error,setError] = useState('')
     const [errorMode,setErrormode] = useState(false)
+    const [errorMode2,setErrormode2] = useState(false)
+    const [errorPassword,setErrorPassword] = useState(false)
     let navigate = useNavigate();
 
     const emailValidation = () => {
@@ -19,6 +21,19 @@ const Login = () => {
          setErrormode(true)
          setError('The email field is required')
           return false
+      }
+      else if(email !== 'test@gmail.com'){
+        setErrormode(true)
+        setError('Wrong email entered')
+      }
+
+      else if(password !== 'test123'){
+        setErrormode2(true)
+        setErrorPassword('Wrong password entered')
+      }
+
+    if(password !== 'test123' && email!== 'test@gmail.com'){
+          alert('Wrong Credentials');
       }
       return true;
   }
@@ -50,12 +65,13 @@ const Login = () => {
       
           <div className='form-inner-header'>
             <h4 className='form-inner-text'>Login</h4>
-              <img src={Tree} style={{width:'150px'}}/>
+              <img src={Tree} style={{width:'350px'}}/>
           </div>
             <input type='email' placeholder='Email' value={email} onChange={(e)=>setEmail(e.target.value)} className='form-input'/><br/>
             {errorMode ? <span style={{color:'red',fontSize:'12px'}}><i class="fa-solid fa-circle-minus" style={{color:'red',fontSize:'12px'}}></i>{error}</span> : ''}
             <br/>
             <input type='password' placeholder='Password' value={password} onChange={(e)=>setPassword(e.target.value)} className='form-input'/><br/>
+            {errorMode2 ? <span style={{color:'red',fontSize:'12px'}}><i class="fa-solid fa-circle-minus" style={{color:'red',fontSize:'12px'}}></i>{errorPassword}</span> : ''}
             <input type='submit' value='Sign In' className='form-button' />
             <div className='form-after-text'>
                 <p className='alignLeft'>Forgot password?</p>

@@ -19,7 +19,7 @@ const Date = () => {
         <h3 className='label-text'>Add Duration in Days</h3>
             <input type='number' value={duration} className='date-picker-input'  onChange={(e) => { setDuration(e.target.value); setLastDate(addDays(firstDate, e.target.value)) }}/>
         <h3 className='label-text'>To Date</h3>
-            <DatePicker selected={lastDate} dateFormat="dd-MM-yyyy" className='date-picker-input'/>
+            <DatePicker selected={lastDate} dateFormat="dd-MM-yyyy" className='date-picker-input' readOnly/>
     </div>
     </>
     );
