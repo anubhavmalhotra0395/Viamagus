@@ -1,0 +1,28 @@
+.date-picker-header{
+    height:120px;
+    background-color: black;
+    color:violet;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 5px solid white;
+  }
+  .dates{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 100px;
+  }
+  
+  body{
+    background: #f9f9f9;
+  }
+  .date-picker-input{
+    width: 100%;
+    padding: 10px;
+  }
+  .label-text{
+    padding-top: 20px;
+  }
